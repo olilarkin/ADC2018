@@ -2,7 +2,6 @@
 
 using namespace WAM;
 
-
 class MyWAM : public Processor
 {
 public:

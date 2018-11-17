@@ -1,0 +1,8 @@
+*.wasm
+*.html
+*.DS_Store
+/HelloWorldNanoVG/index.js
+/HelloWorldGLFW/index.js
+/HelloWorld/index.js
+/HelloWAM/MyWAM.wasm.js
+/HelloWAM/MyWAM.js

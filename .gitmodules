@@ -1,0 +1,6 @@
+[submodule "HelloWorldNanoVG/nanovg"]
+	path = HelloWorldNanoVG/nanovg
+	url = https://github.com/memononen/nanovg.git
+[submodule "HelloWAM/wam"]
+	path = HelloWAM/wam
+	url = https://github.com/webaudiomodules/api.git

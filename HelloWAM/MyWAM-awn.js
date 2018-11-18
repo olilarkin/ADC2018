@@ -12,10 +12,10 @@ class MyWAMController extends WAMController
   static importScripts (actx) {
     var origin = location.origin + "/";
     return new Promise( (resolve) => {
-      actx.audioWorklet.addModule(origin + "MyWAM.wasm.js").then(() => {
-      actx.audioWorklet.addModule(origin + "MyWAM.js").then(() => {
-      actx.audioWorklet.addModule(origin + "wam/wamsdk/wam-processor.js").then(() => {
-      actx.audioWorklet.addModule(origin + "MyWAM-awp.js").then(() => {
+       actx.audioWorklet.addModule(origin + "MyWAM.wasm.js").then(() => {
+         actx.audioWorklet.addModule(origin + "MyWAM.js").then(() => {
+          actx.audioWorklet.addModule(origin + "wam/wamsdk/wam-processor.js").then(() => {
+            actx.audioWorklet.addModule(origin + "MyWAM-awp.js").then(() => {
         resolve();
       }) }) }) });
     })

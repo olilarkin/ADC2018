@@ -42,6 +42,13 @@ void render() {
   nvgFillColor(vg, nvgRGBf(1.f, 0.f, 0.f));
   nvgCircle(vg, winWidth/2., winHeight/2., 100.);
   nvgFill(vg);
+  
+  nvgFontSize(vg, 50.);
+  nvgFontFace(vg, "sans");
+  nvgFillColor(vg, nvgRGBf(0.f, 0.f, 0.f));
+  
+  nvgTextAlign(vg,NVG_ALIGN_LEFT|NVG_ALIGN_MIDDLE);
+  nvgText(vg, winWidth/2., winHeight/2., "Hello World", NULL);
 
   nvgEndFrame(vg);
 
@@ -76,6 +83,8 @@ int main()
     printf("Could not init nanovg.\n");
     return -1;
   }
+  
+  nvgCreateFont(vg, "sans", "Roboto-Regular.ttf");
 
   glfwSwapInterval(0);
 

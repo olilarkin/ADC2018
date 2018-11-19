@@ -6,6 +6,6 @@ EXPORTS = "['_main','_nvgBeginFrame','_nvgCancelFrame','_nvgEndFrame','_nvgGloba
 
 CFLAGS = -I./ -Inanovg/src/ -O2
 LDFLAGS = -s EXPORTED_FUNCTIONS=$(EXPORTS) --emrun
-JSFLAGS = -s BINARYEN_ASYNC_COMPILATION=1 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -s USE_GLFW=3 -s USE_WEBGL2=1 -s FULL_ES3=1 -s ASSERTIONS=0
+JSFLAGS = -s BINARYEN_ASYNC_COMPILATION=1 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -s USE_GLFW=3 -s USE_WEBGL2=1 -s FULL_ES3=1 -s ASSERTIONS=0 --preload-file resources/@/
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(JSFLAGS) -o $@ $(SRC)

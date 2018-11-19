@@ -1,4 +1,4 @@
-class MyWAM_AWP extends AudioWorkletGlobalScope.WAMProcessor
+class MyWAMProcessor extends AudioWorkletGlobalScope.WAMProcessor
 {
   constructor(options) {
     options = options || {}
@@ -7,4 +7,4 @@ class MyWAM_AWP extends AudioWorkletGlobalScope.WAMProcessor
   }
 }
 
-registerProcessor("MyWAM", MyWAM_AWP);
+registerProcessor("MyWAM", MyWAMProcessor);

@@ -16,4 +16,4 @@ fs.writeFileSync(\"MyWAM.wasm.js\", wasmOut);
 node encode-wasm.js
 rm encode-wasm.js
 
-emrun --browser chrome MyWAM.html
+emrun --no_emrun_detect --browser chrome MyWAM.html

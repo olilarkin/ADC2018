@@ -10,7 +10,7 @@ EXPORTS = "[\
   '_wam_onmessageN', '_wam_onmessageS', '_wam_onmessageA', '_wam_onpatch' \
   ]"
 
-LDFLAGS = -s EXPORTED_FUNCTIONS=$(EXPORTS) -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap', 'setValue']" -O2
+LDFLAGS = -s EXPORTED_FUNCTIONS=$(EXPORTS) -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap', 'setValue', 'Pointer_stringify']" -O2
 JSFLAGS = -s SINGLE_FILE=1 -s ALLOW_MEMORY_GROWTH=1 -s BINARYEN_ASYNC_COMPILATION=0 -s EXPORT_NAME="'AudioWorkletGlobalScope.WAM.MyWAM'"
 
 $(TARGET): $(OBJECTS)

@@ -1,5 +1,4 @@
 #include "MyWAM.h"
-#include <cmath>
 #include <cstdlib>
 
 MyWAM::MyWAM()
@@ -9,7 +8,9 @@ MyWAM::MyWAM()
 const char* MyWAM::init(uint32_t bufsize, uint32_t sr, void* pDesc)
 {
   //Very ugly JSON cstring could be simplified using a library
-  return "{\"audio\": { \"inputs\": [{ \"id\":0, \"channels\":0 }], \"outputs\": [{ \"id\":0, \"channels\":2 }] },\"parameters\": [{\"id\":0, \"name\":\"Gain\", \"type\":\"float\", \"min\":0.000000, \"max\":100.000000, \"default\":100.000000, \"rate\":\"control\"}]";
+  const char* descriptor = "{\"audio\": { \"inputs\": [{ \"id\":0, \"channels\":0 }], \"outputs\": [{ \"id\":0, \"channels\":2 }] },\"parameters\": [{\"id\":0, \"name\":\"Gain\", \"type\":\"float\", \"min\":0.000000, \"max\":100.000000, \"default\":100.000000, \"rate\":\"control\"}]}";
+  
+  return descriptor;
 }
 
 #define BPFRAND() -1. + (2. * rand()/(RAND_MAX+1.) ) // returns random value between -1. and 1.

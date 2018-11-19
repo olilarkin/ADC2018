@@ -21,9 +21,8 @@ class MyWAMController extends WAMController
   }
 
   onmessage(msg) {
-    //Received the WAM descriptor from the processor - could create a generic UI here
     if(msg.type == "descriptor") {
-      console.log("got WAM descriptor...");
+      createGUI(msg.data.parameters);
     }
   }
 }

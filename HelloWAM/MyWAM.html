@@ -5,6 +5,31 @@
     <title>MyWAM</title>
     <script type='text/javascript'>
       var MyWAM;
+      
+      function createGUI(parameters)
+      {
+        parameters.forEach( function (p)
+        {
+          var label  = document.createElement("p");
+          var slider = document.createElement("input");
+          label.className = "labelx";
+          label.textContent = p.name;
+          slider.type  = "range";
+          slider.min   = p.min; slider.max = p.max; slider.value = p.def;
+          slider.wamID = p.id;
+          var div = document.createElement("div");
+          div.appendChild(label);
+          div.appendChild(slider);
+          document.querySelector("#gui").appendChild(div);
+
+          slider.oninput = function (e)
+          {
+            var slider = e.target;
+            MyWAM.setParam(slider.wamID, slider.value|0);
+          }
+        });
+      }
+      
       function onload() {
         var actx = new AudioContext();
         var script1 = document.createElement("script");
@@ -22,10 +47,11 @@
           document.head.appendChild(script2);
         }
         document.head.appendChild(script1);
-      }
+      }  
     </script>
   </head>
   <body onload="onload();">
   You should be hearing some white noise!
+  <div id="gui"></div>
   </body>
 </html>

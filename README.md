@@ -1,5 +1,5 @@
 # ADC2018
-A collection of examples using emscripten for the audio developers conference.
+A collection of examples using emscripten for the audio developers conference, mostly extracted from the emscripten tests.
 
 * Check out this repository recursively using the following command:
 ```

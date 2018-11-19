@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MyWAM</title>
+    <script type='text/javascript'>
+      var MyWAM;
+      function onload() {
+        var actx = new AudioContext();
+        var script1 = document.createElement("script");
+        script1.src = "wam/wamsdk/wam-controller.js";
+        script1.onload = () => {
+          var script2 = document.createElement("script");
+          script2.src = "MyWAM-awn.js";
+          script2.onload = () => {
+            MyWAMController.importScripts(actx).then(() => {
+              console.log("Finised importing scripts...");
+              MyWAM = new MyWAMController(actx);
+              MyWAM.connect(actx.destination);
+            });
+          }
+          document.head.appendChild(script2);
+        }
+        document.head.appendChild(script1);
+      }
+    </script>
+  </head>
+  <body onload="onload();">
+  You should be hearing some white noise!
+  </body>
+</html>

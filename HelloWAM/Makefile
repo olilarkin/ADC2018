@@ -10,8 +10,8 @@ EXPORTS = "[\
   '_wam_onmessageN', '_wam_onmessageS', '_wam_onmessageA', '_wam_onpatch' \
   ]"
 
-LDFLAGS = -s EXPORTED_FUNCTIONS=$(EXPORTS) -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']"
-JSFLAGS = -s ENVIRONMENT=web -s EXPORT_NAME="'AudioWorkletGlobalScope.WAM.MyWAM'" -s ALLOW_MEMORY_GROWTH=1 -s BINARYEN_ASYNC_COMPILATION=0 --emrun
+LDFLAGS = -s EXPORTED_FUNCTIONS=$(EXPORTS) -s EXTRA_EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']" -O1
+JSFLAGS = -s SINGLE_FILE=1 -s ENVIRONMENT=worker -s MODULARIZE_INSTANCE=0 -s ALLOW_MEMORY_GROWTH=1 -s BINARYEN_ASYNC_COMPILATION=0 -s EXPORT_NAME="'AudioWorkletGlobalScope.MyWAM'"
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(JSFLAGS) -o $@ $(SRC)

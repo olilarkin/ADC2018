@@ -16,17 +16,11 @@ void errorcb(int error, const char* desc)
 
 GLFWwindow* window;
 NVGcontext* vg = NULL;
-double prevt = 0;
 
 void render() {
-  double t, dt;
   int winWidth, winHeight;
   int fbWidth, fbHeight;
   float pxRatio;
-
-  t = glfwGetTime();
-  dt = t - prevt;
-  prevt = t;
 
   glfwGetWindowSize(window, &winWidth, &winHeight);
   glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
@@ -35,7 +29,7 @@ void render() {
 
   // Update and render
   glViewport(0, 0, fbWidth, fbHeight);
-  glClearColor(0.3f, 0.3f, 0.32f, 1.0f);
+  glClearColor(0.f, 0.f, 1.f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
 
   glEnable(GL_BLEND);
@@ -46,7 +40,7 @@ void render() {
   nvgBeginFrame(vg, winWidth, winHeight, pxRatio);
   
   nvgFillColor(vg, nvgRGBf(1.f, 0.f, 0.f));
-  nvgCircle(vg, winWidth/2., winHeight/2., 100);
+  nvgCircle(vg, winWidth/2., winHeight/2., 100.);
   nvgFill(vg);
 
   nvgEndFrame(vg);
@@ -86,7 +80,6 @@ int main()
   glfwSwapInterval(0);
 
   glfwSetTime(0);
-  prevt = glfwGetTime();
 
   emscripten_set_main_loop(render, 0, 1);
 

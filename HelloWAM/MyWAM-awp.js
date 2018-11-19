@@ -2,7 +2,7 @@ class MyWAM_AWP extends AudioWorkletGlobalScope.WAMProcessor
 {
   constructor(options) {
     options = options || {}
-    options.mod = AudioWorkletGlobalScope.MyWAM;
+    options.mod = AudioWorkletGlobalScope.WAM.MyWAM;
     super(options);
   }
 }

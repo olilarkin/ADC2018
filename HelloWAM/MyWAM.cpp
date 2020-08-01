@@ -8,7 +8,7 @@ MyWAM::MyWAM()
 const char* MyWAM::init(uint32_t bufsize, uint32_t sr, void* pDesc)
 {
   //Very ugly JSON cstring could be simplified using a library
-  const char* descriptor = "{\"audio\": { \"inputs\": [{ \"id\":0, \"channels\":0 }], \"outputs\": [{ \"id\":0, \"channels\":2 }] },\"parameters\": [{\"id\":0, \"name\":\"Gain\", \"type\":\"float\", \"min\":0.000000, \"max\":100.000000, \"default\":100.000000, \"rate\":\"control\"}]}";
+  const char* descriptor = "{\"audio\": { \"inputs\": [{ \"id\":0, \"channels\":1 }], \"outputs\": [{ \"id\":0, \"channels\":1 }] },\"parameters\": [{\"id\":0, \"name\":\"Gain\", \"type\":\"float\", \"min\":0.000000, \"max\":100.000000, \"default\":100.000000, \"rate\":\"control\"}]}";
   
   return descriptor;
 }
@@ -19,8 +19,8 @@ void MyWAM::onProcess(WAM::AudioBus* pAudio, void* pData)
 {
   for (int i = 0; i < 128; i++)
   {
-    pAudio->outputs[0][i] = BPFRAND() * mGain;
-    pAudio->outputs[1][i] = pAudio->outputs[0][i];
+    pAudio->outputs[0][i] = pAudio->inputs[0][i] * mGain;
+    // pAudio->outputs[1][i] = pAudio->outputs[0][i];
   }
 }
 

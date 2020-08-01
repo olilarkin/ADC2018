@@ -37,7 +37,17 @@
           script2.onload = () => {
             MyWAMController.importScripts(actx).then(() => {
               console.log("Finised importing scripts...");
-              MyWAM = new MyWAMController(actx);
+
+              let options = {numberOfInputs: 1, inputChannelCount: [1], 
+                             numberOfOutputs: 1, outputChannelCount: [1],
+                             processorOptions: {inputChannelCount: [1]}};
+
+
+              MyWAM = new MyWAMController(actx, options);
+              osc = actx.createOscillator();
+              osc.frequency = 440.;
+              osc.connect(MyWAM);
+              osc.start();
               MyWAM.connect(actx.destination);
               document.getElementById("button").hidden = true;
               document.getElementById("label").innerHTML = "You should be hearing some white noise!";

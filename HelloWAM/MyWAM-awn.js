@@ -2,9 +2,10 @@ class MyWAMController extends WAMController
 {
   constructor (actx, options) {
     options = options || {};
-    options.numberOfInputs  = 0;
+    options.numberOfInputs  = 1;
     options.numberOfOutputs = 1;
-    options.outputChannelCount = [2];
+    options.outputChannelCount = [1];
+    options.processorOptions = {inputChannelCount: [1]};
 
     super(actx, "MyWAM", options);
   }

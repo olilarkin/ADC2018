@@ -1,5 +1,5 @@
 # ADC2018
-A collection of examples using emscripten for the audio developers conference (video of presentation)[https://www.youtube.com/watch?v=IRLxMhksUZ0]
+A collection of examples using emscripten for the audio developers conference [video of presentation](https://www.youtube.com/watch?v=IRLxMhksUZ0)
 Code is mostly extracted and simplified from the emscripten tests.
 
 * Check out this repository recursively using the following command:
